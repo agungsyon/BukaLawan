@@ -61,6 +61,38 @@ button :hover {
     background-color: aqua;
 }
 
+/* main styles */
+table thead {
+    border-bottom: 1px solid black;
+}
+
+table {
+    border-collapse: collapse;
+    font-size: 16px;
+    border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+th {
+    background-color: #cbc4aa;
+    color: black;
+    height: 25px;
+}
+
+td {
+    padding: 5px 30px;
+    height: 20px;
+}
+
+.tabel-header h1 {
+    width:500px;
+    margin: 0 auto;
+    padding: 40px;
+    text-align: center;
+}
+
+
 
 /* footer styles */
 
@@ -71,7 +103,7 @@ footer {
     height: auto;
     width: 100vw;
     font-family: "Montserrat Alternates", sans-serif;
-    padding-top: 40px;
+    padding-top: 5px;
     color: #dcd3b4;
 }
 
@@ -119,7 +151,7 @@ footer {
 .footer-bottom {
     background: #5e6669;
     width: 100vw;
-    padding: 20px 0;
+    padding: 5px 0;
     text-align: center;
 }
 
