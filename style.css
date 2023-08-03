@@ -104,6 +104,19 @@ body {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+.nav-bukalawan {
+    background-color: #dcd3b4;
+}
+
+.section-bukalawan {
+    background-image: url(images/kemerdekaan.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    background-size: cover;
+}
+
+
 hr {
   margin: 1rem 0;
   color: inherit;
