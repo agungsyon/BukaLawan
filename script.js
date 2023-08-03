@@ -204,7 +204,7 @@ function addToModal() {
                             </div>
                             <div class="text-end">
                               <button onclick="removeFromCart(${id})" type="button"
-                              class="btn btn-warning btn-block btn-lg">hapus<button>
+                              class="btn btn-warning btn-block btn-lg">hapus</button>
                             </div>
                           </div>
                         </div>`;

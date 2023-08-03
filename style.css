@@ -107,13 +107,14 @@ body {
 /* Style BukaLawan */
 
 .nav-bukalawan {
-    background-color: #dcd3b4;
+    background-color: #dcd3b4 !important;
+    
 }
 
 .section-bukalawan {
-    background-image: url(images/kemerdekaan.jpg);
+    background-image: url(https://cdn.discordapp.com/attachments/1130882918445748245/1136725998419857568/kemerdekaan-transformed.jpeg);
     background-position: center;
-    background-repeat: no-repeat;
+    /* background-repeat: no-repeat; */
     height: 100%;
     background-size: cover;
 }
