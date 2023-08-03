@@ -105,10 +105,12 @@ let data = [
   },
 ];
 // cart
-let countainerCart = [];
+let keranjang = [];
 
 const el = document.getElementById("booklist");
 const bodypayment = document.getElementById("bodypayment");
+const countTotal = document.getElementById("countTotal");
+let counting = document.getElementById("counting");
 
 let cards = "";
 let paymets = "";
@@ -120,7 +122,6 @@ function loopBuku() {
   cards = "";
   for (const book of data) {
     let { id, title, price, stock, description, img } = book;
-
     const card = `
       <div class="col mb-5 ">
       <div class="card h-100 ">
@@ -152,7 +153,6 @@ function loopBuku() {
 }
 
 function beli(id) {
-  let counting = document.getElementById("counting");
   let cart = Number(counting.innerText);
 
   cart++;
@@ -160,17 +160,18 @@ function beli(id) {
   counting.innerText = cart.toString();
 
   const product = data.find((x) => x.id == id);
-  countainerCart.push(product);
-  console.log(product);
+  keranjang.push(product);
   product.stock--;
+
   loopBuku();
   addToModal();
+  countTotal.innerHTML = calculateTotalPrice();
 }
 
 function addToModal() {
   bodypayment.innerHTML = "";
   paymets = "";
-  for (const item of countainerCart) {
+  for (const item of keranjang) {
     let { id, title, price, stock, description, img } = item;
     const payment = `<div class="card rounded-3 mb-4">
                         <div class="card-body p-4">
@@ -192,14 +193,6 @@ function addToModal() {
                                 <i class="fas fa-minus"></i>
                               </button>
   
-                              <input
-                                id="form1"
-                                min="0"
-                                name="quantity"
-                                value="2"
-                                type="number"
-                                class="form-control form-control-sm" />
-  
                               <button
                                 class="btn btn-link px-2"
                                 onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
@@ -207,16 +200,65 @@ function addToModal() {
                               </button>
                             </div>
                             <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                              <h5 class="mb-0">$499.00</h5>
+                              <h5 class="mb-0">${price}</h5>
                             </div>
-                            <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                              <a href="#!" class="text-danger"
-                                ><i class="fas fa-trash fa-lg"></i
-                              ></a>
+                            <div class="text-end">
+                              <button onclick="removeFromCart(${id})" type="button"
+                              class="btn btn-warning btn-block btn-lg">hapus<button>
                             </div>
                           </div>
                         </div>`;
     paymets += payment;
   }
   bodypayment.innerHTML = paymets;
+}
+
+// qty
+// <input
+//   id="form1"
+//   min="0"
+//   name="quantity"
+//   value="2"
+//   type="number"
+//   class="form-control form-control-sm"
+// />;
+
+// function baru
+
+// untuk total harga buku di cart
+function calculateTotalPrice() {
+  let total = 0;
+  keranjang.forEach((item) => {
+    total += item.price;
+  });
+  return total;
+}
+
+// hapus buku di cart
+function removeFromCart(id) {
+  let cart = Number(counting.innerText);
+  const index = keranjang.findIndex((item) => item.id === id);
+  if (index !== -1) {
+    keranjang.splice(index, 1);
+  }
+
+  cart--;
+
+  counting.innerText = cart.toString();
+  countTotal.innerHTML = calculateTotalPrice();
+  addToModal();
+}
+
+// success
+function checkout() {
+  if (keranjang.length === 0) {
+    alert(
+      "Your cart is empty. Please add items to the cart before checking out.",
+    );
+    return;
+  }
+
+  alert(`Checkout Successful!\nTotal Price: IDR. ${calculateTotalPrice()}`);
+  keranjang = [];
+  updateCart();
 }

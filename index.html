@@ -56,21 +56,6 @@
               </ul>
             </li>
           </ul>
-          <form class="d-flex">
-            <button
-              class="btn btn-outline-dark"
-              type="submit"
-              data-bs-toggle="modal"
-              data-bs-target="#staticBackdrop">
-              <i class="bi-cart-fill me-1"></i>
-              Cart
-              <span
-                id="counting"
-                class="badge bg-dark text-white ms-1 rounded-pill"
-                >0</span
-              >
-            </button>
-          </form>
         </div>
       </div>
     </nav>
@@ -89,6 +74,23 @@
     <!-- Section-->
     <section class="py-5 section-bukalawan">
       <div class="container px-4 px-lg-5 mt-5">
+        <div class="d-flex flex-row-reverse mb-5">
+             <form class="d-flex">
+            <button
+              class="btn btn-outline-dark"
+              type="submit"
+              data-bs-toggle="modal"
+              data-bs-target="#staticBackdrop">
+              <i class="bi-cart-fill me-1"></i>
+              Cart
+              <span
+                id="counting"
+                class="badge bg-dark text-white ms-1 rounded-pill"
+                >0</span
+              >
+            </button>
+          </form>
+        </div>
         <div
           id="booklist"
           class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"></div>
@@ -135,21 +137,31 @@
                     </div>
                     <!-- end modal body -->
                     <div class="card" >
-                      <div class="card-body" id="bodypayment">
-                       
+                      <div class="card-body">
+                       <div class=" " id="bodypayment">
+                        <!-- card items -->
+                       </div>
+                       <!-- count total -->
                       </div>
-                      <div class="modal-footer">
-                        <button
-                          type="button"
-                          class="btn btn-warning btn-block btn-lg">
-                          Proceed to Pay
-                        </button>
+                      
+                      <div class="modal-footer d-flex justify-content-between">
+                        <div>
+                            <p class="h3" id="countTotal"></p>
+                        </div>
+                        <div class="d-flex flex-row gap-2">
                             <button
-                            type="button"
-                            class="btn btn-secondary"
-                            data-bs-dismiss="modal">
-                            Close
+                                onclick="checkout()"
+                              type="button"
+                              class="btn btn-warning btn-block btn-lg">
+                              Proceed to Pay
                             </button>
+                                <button
+                                type="button"
+                                class="btn btn-secondary"
+                                data-bs-dismiss="modal">
+                                Close
+                                </button>
+                        </div>
                             </div>
                     </div>
                   </div>
