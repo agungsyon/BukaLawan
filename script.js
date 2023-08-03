@@ -143,9 +143,19 @@ for (const book of data) {
 
 el.innerHTML = cards;
 
+let countainerCart = []
+
 function beli(id) {
   let counting = document.getElementById("counting");
   let cart = Number(counting.innerText);
+  
+  cart++;
 
-  counting.innerText = cart++;
+  counting.innerText = cart.toString()
+
+  const product = data.find(x => x.id == id)
+  countainerCart.push(product)
+  console.log(countainerCart);
 }
+
+ 
