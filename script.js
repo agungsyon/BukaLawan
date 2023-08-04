@@ -204,7 +204,7 @@ function addToModal() {
                             </div>
                             <div class="text-end">
                               <button onclick="removeFromCart(${id})" type="button"
-                              class="btn btn-warning btn-block btn-lg">hapus</button>
+                              class="btn btn-warning btn-block btn-lg">Hapus</button>
                             </div>
                           </div>
                         </div>`;
@@ -253,12 +253,12 @@ function removeFromCart(id) {
 function checkout() {
   if (keranjang.length === 0) {
     alert(
-      "Your cart is empty. Please add items to the cart before checking out.",
+      "Keranjangmu kosong. Mohon masukkan buku ke dalam keranjang.",
     );
     return;
   }
 
-  alert(`Checkout Successful!\nTotal Price: IDR. ${calculateTotalPrice()}`);
+  alert(`Pemesanan Berhasil\nHarga Total: IDR. ${calculateTotalPrice()}`);
   keranjang = [];
   updateCart();
 }
