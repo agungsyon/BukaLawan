@@ -261,4 +261,4 @@ function checkout() {
   alert(`Pemesanan Berhasil\nHarga Total: IDR. ${calculateTotalPrice()}`);
   keranjang = [];
   updateCart();
-}
+}//
